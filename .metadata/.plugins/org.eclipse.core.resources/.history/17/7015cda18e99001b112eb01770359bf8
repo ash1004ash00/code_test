@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:p="http://www.springframework.org/schema/p"
+		xmlns:util="http://www.springframework.org/schema/util"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans.xsd
+							http://www.springframework.org/schema/util
+		 					http://www.springframework.org/schema/util/spring-util.xsd
+		 					http://www.springframework.org/schema/context 
+							http://www.springframework.org/schema/context/spring-context.xsd">
+		 					
+	<context:annotation-config />
+		<!-- Exam exam = new NewlecExam(); -->
+	<!-- 
+		<bean id="exam" class="spring.di.entity.NewlecExam">
+	-->
+		<!--  setter 로 하나씩 넣은것
+			<property name="kor">
+				<value>10</value>
+			</property>
+			<property name="eng" value="10"></property>
+			<property name="math" value="10"></property>
+			<property name="com" value="10"></property>
+		-->
+		<!-- Exam exam = new NewlecExam(10,20,30,40): 생성자로 한번에 다 넣는것 -->
+			<!-- 
+				<constructor-arg index="0" value="10" />
+				<constructor-arg index="1" value="20" />
+				<constructor-arg index="3" value="30" />
+				<constructor-arg index="2" value="40" />
+			-->
+			<!-- 
+				<constructor-arg name="kor" value="10" />
+				<constructor-arg name="eng" value="20" />
+				<constructor-arg name="math" value="30" />
+				<constructor-arg name="com" value="40" />
+			-->
+	<!-- 
+		</bean> 
+	-->
+	<!--<bean id="exam1" class="spring.di.entity.NewlecExam" p:kor="10" p:eng="10"/>
+		<bean id="exam2" class="spring.di.entity.NewlecExam" p:kor="30" p:eng="40"/>	-->
+		
+		<!-- ExamConsole console = new GridExamClonsole(); -->
+		<bean id="console" class= "spring.di.ui.InlineExamClonsole">
+			<!-- console.setExam(exam); -->
+			<!-- <property name="setExam"></property> : setExam:exam 으로 축약한 것 -->
+			<!-- <property name="exam" ref="exam" /> -->
+		</bean>
+		<!-- 스스로 객체를 만들수있음 -->
+		<util:list id="exams" list-class="java.util.ArrayList">
+			<!-- 직접 생성한 것 -->
+			<bean class="spring.di.entity.NewlecExam" p:kor="1" p:eng="1"/>
+			<!-- 위에 있는 객체를 참조해서 하는것 -->
+		<!-- <ref bean = "exam"/> -->
+		</util:list>
+		
+		<!-- List<Exam> exams = new ArrayList<>(); -->
+	<!-- 	<bean id="exams" class="java.util.ArrayList">
+			<constructor-arg>
+	-->
+				<!-- 스스로 객체를 만드는 역할 못함 -->
+	<!--		<list> -->
+					<!-- 직접 생성한 것 -->
+	<!--  			<bean class="spring.di.entity.NewlecExam" p:kor="1" p:eng="1"/> -->
+					<!-- 위에 있는 객체를 참조해서 하는것 -->
+	<!--			<ref bean = "exam"/>
+				</list>
+			</constructor-arg>
+		</bean>
+	-->
+</beans>

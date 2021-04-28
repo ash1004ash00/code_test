@@ -1,0 +1,32 @@
+
+<context:annotation-config /> 해야 @Autowired  읽는다.
+@Autowired 
+자동으로 객체를 연동해주세요 -> 자료형식을 기본으로 찾아준다 : 여기서는 Exam
+			 -> 식별이 에매할 떄는 변수명으로도 찾아준다.
+@Qualifier("exam1") // id 값을 exam1 으로 해주세요
+
+@Autowired(required=false)
+만약 값들이 없을수도 있을때 사용 -> exam == null 일때...
+
+<context:component-scan base-package="spring.di.ui;"></context:component-scan>
+@Component
+객체를 만들어쥼 -> 클래스에다가 주입한다.
+
+@value
+값을 초기화해준다 -> 해당 변수에다가 주입한다.
+
+#config.java 파일
+@ComponentScan("spring.di.ui")
+객채를 만들어듐
+@Configuration
+콘피그 파일인걸 알려듐
+@Bean
+public Exam exam() {
+	return new NewlecExam();
+}
+exam() : id 명
+
+
+
+
+

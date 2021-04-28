@@ -1,0 +1,47 @@
+package spring.di.ui;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import spring.di.entity.Exam;
+
+public class InlineExamClonsole implements ExamConsole {
+	
+	@Autowired //자동으로 객체를 연동해주세요 -> 자료형식을 기본으로 찾아준다 : 여기서는 Exam
+	//		  -> 식별이 에매할 떄는 변수명으로도 찾아준다.
+	@Qualifier("exam1") // id 값을 exam1 으로 해주세요
+	private Exam exam;
+	
+	public InlineExamClonsole() {
+		System.out.println("constrictor");
+	}
+	
+	public InlineExamClonsole(Exam exam) {
+		System.out.println("overloaded constrictor");
+		this.exam = exam;
+	}
+/*	
+	// 파라미터를 달고있는 생성자는 Qualifier를 변수안에 집어넣어야한다.
+	@Autowired
+  	public InlineExamClonsole(@Qualifier("exam1")Exam exam) {
+		System.out.println("overloaded constrictor");
+		this.exam = exam;
+	}
+*/
+
+	@Override
+	public void print() {
+		// TODO Auto-generated method stub
+		System.out.printf("total is %d, avg is %f\n", exam.total(), exam.avg());
+	}
+	
+	//@Autowired //자동으로 객체를 연동해주세요 -> 자료형식을 기본으로 찾아준다 : 여기서는 Exam
+							//		  -> 식별이 에매할 떄는 변수명으로도 찾아준다.
+	//@Qualifier("exam1") // id 값을 exam1 으로 해주세요
+	@Override
+	public void setExam(Exam exam) {
+		System.out.println("setter");
+		this.exam = exam;
+	}
+
+}

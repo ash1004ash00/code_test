@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans.xsd">
+		<!-- Exam exam = new NewlecExam(); -->
+		<bean id="exam" class="spring.di.entity.NewlecExam" />
+		<!-- ExamConsole console = new GridExamClonsole(); -->
+		<bean id="console" class= "spring.di.ui.GridExamClonsole">
+			<!-- console.setExam(exam); -->
+			<!-- <property name="setExam"></property> : setExam:exam 으로 축약한 것 -->
+			<property name="exam" ref="exam" />
+		</bean>
+		
+		
+</beans>

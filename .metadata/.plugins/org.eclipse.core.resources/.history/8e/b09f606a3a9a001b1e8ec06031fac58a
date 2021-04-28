@@ -1,0 +1,10 @@
+package spring.aop.advice;
+
+import org.springframework.aop.ThrowsAdvice;
+
+public class LogAfterThrowingAdvice implements ThrowsAdvice{
+
+	public void afterThrowung(IllegalArgumentException e) throws Throwable{
+		
+	}
+}

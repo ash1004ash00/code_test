@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\00.JExam\practice_java_1_work\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1047983271.index
+3271193799.index
+3925141752.index
+1462571996.index
+1687141960.index
+1216286091.index

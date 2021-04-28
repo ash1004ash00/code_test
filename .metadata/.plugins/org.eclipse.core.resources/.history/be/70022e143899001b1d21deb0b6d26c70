@@ -1,0 +1,23 @@
+package spring.di;
+
+import spring.di.entity.Exam;
+import spring.di.entity.NewlecExam;
+import spring.di.ui.ExamConsole;
+import spring.di.ui.GridExamClonsole;
+import spring.di.ui.InlineExamClonsole;
+
+public class Program {
+
+	public static void main(String[] args) {
+	
+	/*	스프링에게 지시하는 방법으로 코드를 변경
+		Exam exam = new NewlecExam();
+		//ExamConsole console = new InlineExamClonsole(exam); // 한줄에 출력 // DI
+		ExamConsole console = new GridExamClonsole();// 그리드 형식으로 출력 // DI
+		console.setExam(exam);
+	*/
+		
+		console.print();
+	}
+
+}
